@@ -1,4 +1,4 @@
-import Customer from "../../../models/customer";
+import Customer from "../../../models/Customer";
 import connectDB from "../../../utils/ConnectDB";
 
 export default async function handler(req, res) {
@@ -19,13 +19,11 @@ export default async function handler(req, res) {
         .json({ status: "failed", message: "Invalid Data" });
     try {
       const customer = await Customer.create(data);
-      res
-        .status(201)
-        .json({
-          status: "success",
-          message: "Customer created",
-          data: customer,
-        });
+      res.status(201).json({
+        status: "success",
+        message: "Customer created",
+        data: customer,
+      });
     } catch (error) {
       console.log(error);
       return res

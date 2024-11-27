@@ -38,7 +38,7 @@ function AddCustomerPage() {
     });
     const data = await res.json();
     console.log(data);
-    if (data.status === "succes") router.push("/");
+    if (data.status === "success") router.push("/");
   };
   return (
     <div className="customer-page">

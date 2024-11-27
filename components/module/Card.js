@@ -1,8 +1,17 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 
 function Card({ customer }) {
-  const deleteHandler = () => {};
+  const router = useRouter();
+  const deleteHandler = async () => {
+    const res = await fetch(`/api/delete/${customer._id}`, {
+      method: "DELETE",
+    });
+    const data = await res.json();
+    if (data.status === "success") router.reload();
+    console.log(data);
+  };
   return (
     <div className="card">
       <div className="card__details">

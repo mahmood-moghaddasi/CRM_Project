@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     return;
   }
   if (req.method === "DELETE") {
-    const id = req.req.customerId;
+    const id = req.query.customerId;
     try {
       await Customer.deleteOne({ _id: id });
       res.status(200).json({ status: "success", message: "Customer deleted" });
